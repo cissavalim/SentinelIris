@@ -6,7 +6,6 @@ It demonstrates the following scenario:
 - Use sensors that collect data (temperature, humidity, location) and send it to a Java backend. 
 - IRIS stores the data, maintains a history, allows for quick queries, and issues alerts if something goes outside acceptable limits. 
 - Java can perform real-time or near-real-time processing, trend analysis, and anomaly detection.
-Web interface for viewing maps/situations and reports.
 
 ---
 
