@@ -1,8 +1,8 @@
-package com.example.demo.model;
+package com.example.demo.model.entity;
 
 import java.sql.Timestamp;
 
-public record SensorReading(
+public record SensorReadingEntity(
     int readingID,
     String containerID,
     Timestamp timestamp,

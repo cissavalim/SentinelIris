@@ -5,12 +5,12 @@ import com.intersystems.jdbc.IRISDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class Repository {
+public class DatabaseConnection {
 
-    private static Repository instance;
+    private static DatabaseConnection instance;
     private final IRISDataSource dataSource;
 
-    private Repository() {
+    private DatabaseConnection() {
         String ip = "localhost";
         int port = 9091;
         String namespace = "USER";
@@ -27,9 +27,9 @@ public class Repository {
         }
     }
 
-    public static synchronized Repository getInstance() {
+    public static synchronized DatabaseConnection getInstance() {
         if (instance == null) {
-            instance = new Repository();
+            instance = new DatabaseConnection();
         }
         return instance;
     }
@@ -41,4 +41,5 @@ public class Repository {
             throw new RuntimeException("Failed to get connection", e);
         }
     }
+
 }

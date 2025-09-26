@@ -1,36 +1,37 @@
 package com.example.demo.service;
 
-import com.example.demo.model.SensorReading;
-import com.example.demo.repository.Repository;
+import com.example.demo.model.dto.SensorReadingDTO;
+import com.example.demo.model.entity.SensorReadingEntity;
+import com.example.demo.repository.SensorRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.Timestamp;
 
+@Service
+@RequiredArgsConstructor
 public class SensorService {
-    public boolean isAnomaly(SensorReading reading) {
-        // Temperatura fora de [2,8] °C
+
+    private final SensorRepository sensorRepository;
+
+    public boolean isAnomaly(SensorReadingEntity reading) {
         if (reading.temperature() < 2 || reading.temperature() > 8) return true;
-        // Umidade > 85%
         if (reading.humidity() > 85) return true;
-        // GPS ausente (lat/lon == 0)
         return reading.lat() == 0 && reading.lon() == 0;
     }
 
-    public void saveSensorReading(SensorReading reading) {
-        try (Connection conn = Repository.getInstance().getConnection()) {
-            String sql = "INSERT INTO SensorReading (ContainerID, Timestamp, Temperature, Humidity, Lat, Lon, AnomalyFlag) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, reading.containerID());
-            ps.setTimestamp(2, reading.timestamp());
-            ps.setDouble(3, reading.temperature());
-            ps.setDouble(4, reading.humidity());
-            ps.setDouble(5, reading.lat());
-            ps.setDouble(6, reading.lon());
-            ps.setBoolean(7, isAnomaly(reading));
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao salvar leitura do sensor", e);
-        }
+    public void saveSensorReading(SensorReadingDTO dto) {
+        SensorReadingEntity reading = new SensorReadingEntity(
+                0,
+                dto.containerID(),
+                new Timestamp(dto.timestamp()),
+                dto.temperature(),
+                dto.humidity(),
+                dto.lat(),
+                dto.lon(),
+                false
+        );
+        final var isAnomaly = isAnomaly(reading);
+        sensorRepository.saveSensorReading(reading, isAnomaly);
     }
 }

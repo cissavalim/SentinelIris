@@ -12,6 +12,6 @@ CREATE TABLE SensorReading (
     Humidity DECIMAL(5,2),
     Lat DECIMAL(9,6),
     Lon DECIMAL(9,6),
-    AnomalyFlag BOOLEAN,
+    AnomalyFlag INT,
     FOREIGN KEY (ContainerID) REFERENCES Container(ContainerID)
 );
