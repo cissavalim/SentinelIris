@@ -1,4 +1,4 @@
-# Demo Project
+# SentinelIRIS
 
 This project is a Spring Boot application that connects to an InterSystems IRIS database. 
 It demonstrates the following scenario:
