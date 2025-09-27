@@ -24,7 +24,7 @@ It demonstrates the following scenario:
    ```
 2. This will start IRIS.
 3. You need to open its interface:
-    - Open your web browser and go to `http://localhost:9091/csp/sys/UtilHome.csp`.
+    - Open your web browser and go to `http://localhost:9092/csp/sys/UtilHome.csp`.
     - Log in with:
       - Username: `_SYSTEM`
       - Password: `SYS`
@@ -54,6 +54,16 @@ It demonstrates the following scenario:
      ```
 3. The application will start on the default port (usually 8080).
 
+---
+
+## Simulating Sensor Data
+
+1. You can simulate sensor data by running the simulate_sensor.py script.
+2. Ensure you have Python installed.
+3. Run the script:
+    ```sh
+    python simulate_sensor.py
+    ```
 ---
 
 ## Troubleshooting

@@ -1,7 +1,7 @@
 CREATE TABLE Container (
     ContainerID VARCHAR(50) PRIMARY KEY,
     Description VARCHAR(255),
-    Owner VARCHAR(100)
+    Location VARCHAR(100)
 );
 
 CREATE TABLE SensorReading (
