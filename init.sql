@@ -2,7 +2,7 @@ CREATE TABLE Container (
     ContainerID VARCHAR(50) PRIMARY KEY,
     Description VARCHAR(255),
     Location VARCHAR(100)
-);
+)
 
 CREATE TABLE SensorReading (
     ReadingID SERIAL PRIMARY KEY,
@@ -14,4 +14,4 @@ CREATE TABLE SensorReading (
     Lon DECIMAL(9,6),
     AnomalyFlag INT,
     FOREIGN KEY (ContainerID) REFERENCES Container(ContainerID)
-);
+)

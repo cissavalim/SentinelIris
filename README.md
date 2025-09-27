@@ -29,7 +29,7 @@ It demonstrates the following scenario:
       - Username: `_SYSTEM`
       - Password: `SYS`
     - You'll be requested to change your password.
-    - Then update this password in Repository.java file.
+    - Then update this password in DatabaseConnection.java file.
 
 ---
 
@@ -37,7 +37,7 @@ It demonstrates the following scenario:
 
 1. Go to init.sql file and copy its content.
 2. In the IRIS web interface, go to "System Explorer" > "SQL".
-3. Paste the SQL commands and execute them to create the necessary tables.
+3. Paste the SQL commands and execute each one to create the necessary tables.
 
 ## Running the Project
 
