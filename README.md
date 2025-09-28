@@ -48,6 +48,12 @@ It demonstrates the following scenario:
     ```
 ---
 
+## API Documentation
+
+1. You can access the API Swagger through this URL after you run the application: `http://localhost:8080/swagger-ui.html`
+
+---
+
 ## Troubleshooting
 - Ensure Java and Gradle are installed and available in your PATH.
 - For Docker Compose, ensure Docker Desktop is running.
