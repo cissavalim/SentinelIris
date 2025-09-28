@@ -11,8 +11,8 @@ public class DatabaseConnection {
     private final IRISDataSource dataSource;
 
     private DatabaseConnection() {
-        String ip = "localhost";
-        int port = 9091;
+        String ip = "iris";
+        int port = 1972;
         String namespace = "USER";
         String username = "_SYSTEM";
         String password = "SYS1";

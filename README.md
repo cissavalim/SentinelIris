@@ -10,26 +10,23 @@ It demonstrates the following scenario:
 ---
 
 ## Prerequisites
-- Java 17 or newer
-- Docker (for running IRIS)
+- Docker (for running IRIS and the application)
 
 ---
 
-## Running IRIS
+## Running IRIS and the Java application
 
 ### Using Docker
-1. Run the following command in your terminal:
+1. Go to the root folder and run the following command in your terminal:
    ```cmd
-    docker run --name my-iris -d --publish 9091:1972 --publish 9092:52773 intersystems/iris-community:latest-cd
+    docker-compose up -d
    ```
-2. This will start IRIS.
-3. You need to open its interface:
-    - Open your web browser and go to `http://localhost:9092/csp/sys/UtilHome.csp`.
+2. You need to open IRIS interface:
+    - Open your web browser and go to `http://localhost:52773/csp/sys/UtilHome.csp`.
     - Log in with:
       - Username: `_SYSTEM`
-      - Password: `SYS`
-    - You'll be requested to change your password.
-    - Then update this password in DatabaseConnection.java file.
+      - Password: `SYS1`
+3. Then you'll need to create the tables (see below).
 
 ---
 
@@ -37,22 +34,7 @@ It demonstrates the following scenario:
 
 1. Go to init.sql file and copy its content.
 2. In the IRIS web interface, go to "System Explorer" > "SQL".
-3. Paste the SQL commands and execute each one to create the necessary tables.
-
-## Running the Project
-
-### Using Gradle Wrapper
-1. Open a terminal in the project root directory.
-2. Run the following command:
-   - On Windows:
-     ```cmd
-     gradlew.bat bootRun
-     ```
-   - On macOS/Linux:
-     ```sh
-     ./gradlew bootRun
-     ```
-3. The application will start on the default port (usually 8080).
+3. Use the namespace `USER` and paste the SQL commands and execute each one to create the necessary tables.
 
 ---
 

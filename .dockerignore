@@ -1,0 +1,11 @@
+build/
+.gradle/
+*.iml
+*.log
+*.md
+*.sql
+*.bat
+*.sh
+*.jar
+!build/libs/*.jar
+
