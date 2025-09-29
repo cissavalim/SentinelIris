@@ -19,7 +19,7 @@ It demonstrates the following scenario:
 ### Using Docker
 1. Go to the root folder and run the following command in your terminal:
    ```cmd
-    docker-compose up -d
+    docker-compose up --build
    ```
 2. You need to open IRIS interface:
     - Open your web browser and go to `http://localhost:52773/csp/sys/UtilHome.csp`.
