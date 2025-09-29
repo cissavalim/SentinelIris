@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   iris:
     image: intersystems/iris-community:latest-cd
