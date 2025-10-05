@@ -17,14 +17,14 @@ public class ContainerController {
 
     private final ContainerService containerService;
 
-    @GetMapping("/{id}/history")
-    public ResponseEntity<List<SensorReadingEntity>> getHistory(@PathVariable("id") String containerID) {
+    @GetMapping("/{containerId}/history")
+    public ResponseEntity<List<SensorReadingEntity>> getHistory(@PathVariable("containerId") String containerID) {
         final var list = containerService.findSensorReadingByContainerId(containerID);
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/{id}/status")
-    public ResponseEntity<Map<String, Object>> getStatus(@PathVariable("id") String containerID) {
+    @GetMapping("/{containerId}/status")
+    public ResponseEntity<Map<String, Object>> getStatus(@PathVariable("containerId") String containerID) {
         final var status = containerService.findStatusByContainerId(containerID);
         return ResponseEntity.ok(status);
     }
